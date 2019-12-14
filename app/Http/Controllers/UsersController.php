@@ -21,6 +21,7 @@ class UsersController extends Controller
                </span>';
         })
         ->toJson();
+
     }
 
     public function index(){
@@ -44,7 +45,7 @@ class UsersController extends Controller
     {
         $data = new User();
         $data->email = $request->email;
-        $data->password = Hash::make($request->password);
+        $data->password = bcrypt($request->password);
         $data->name= $request->name;
         $data->username= $request->username;
         $data->nis = $request->nis;

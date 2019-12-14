@@ -17,7 +17,8 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(Kelas::class, function (Faker $faker) {
+    $name = $faker->sentence;
     return [
-        'nama_kelas' => $faker->name,
+        'nama_kelas' => $name,
     ];
 });
