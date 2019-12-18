@@ -1,4 +1,4 @@
-@extends('parts.appbase', ['title' => 'Mata Pelajaran'])
+@extends('parts.appbase', ['title' => 'Raport'])
 
 @section('content')
 <!-- begin:: Content -->
@@ -17,7 +17,7 @@
                 <div class="kt-portlet__head-wrapper">
                     <div class="kt-portlet__head-actions">
                         &nbsp;
-                        <a href="#" data-toggle="modal" data-target="#modalAdd" class="btn btn-brand btn-elevate btn-icon-sm">
+                    <a href="{{route('raport.create')}}" class="btn btn-brand btn-elevate btn-icon-sm">
                             <i class="la la-plus"></i>
                             New Record
                         </a>
@@ -38,7 +38,7 @@
                         </select>
                      </div>
                     <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                        <label>Nama User:</label>
+                        <label>Nama Siswa:</label>
                         <select class="form-control selectData" id="user">
                             <option></option>
                             @foreach ($users as $data)
@@ -81,59 +81,6 @@
 @endsection
 @section('extended')
 <!--begin::Modal-->
-<div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Mata Pelajaran</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <form id="formAdd" role="form" method="POST" action="{{ route('matapelajaran.add') }}">
-            <div class="modal-body">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="recipient-name" class="form-control-label">Nama Mata Pelajaaran:</label>
-                        <input type="text" class="form-control" name="mata_pelajaran">
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Confirm</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!--end::Modal-->
-<!--begin::Modal-->
-<div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Mata Pelajaran</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <form id="formUpdate" role="form" method="POST" action="{{ route('matapelajaran.update') }}">
-            <div class="modal-body">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="recipient-name" class="form-control-label">Nama Mata Pelajaran:</label>
-                        <input type="hidden" name="id">
-                        <input type="text" class="form-control" name="mata_pelajaran">
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Confirm</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!--end::Modal-->
-<!--begin::Modal-->
 <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -142,7 +89,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 </button>
             </div>
-            <form id="formDelete" role="form" method="POST" action="{{ route('matapelajaran.delete') }}">
+            <form id="formDelete" role="form" method="POST" action="{{ route('raport.delete') }}">
             <div class="modal-body">
                     {{ csrf_field() }}
                     <input type="hidden" name="id">
@@ -164,7 +111,7 @@
 <script src="{{('js/SendBird.min.js')}}"></script>
 <script src="{{('js/widget.SendBird.js')}}"></script>
 <script>
-        sbWidget.start('9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23');
+        sbWidget.start('A7A75D32-F6A7-4693-9093-8D892B595282');
  </script>
 <script>
 $(function() {

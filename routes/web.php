@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Auth::routes();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::resource('dasboard','DasboardController');
 
@@ -40,6 +41,10 @@ Route::post('matapelajaran/delete','MatapelajaranController@delete')->name('mata
 
 Route::get('raport','RaportController@index')->name('raport');
 Route::get('raport/datatable','RaportController@datatable');
+Route::get('raport/datatabledetail','RaportController@datatabledetail');
+Route::get('raport/create','RaportController@create')->name('raport.create');
+Route::get('raport/detail/{year}/{id}','RaportController@detail');
 Route::post('raport/add','RaportController@add')->name('raport.add');
 Route::post('raport/update','RaportController@update')->name('raport.update');
 Route::post('raport/delete','RaportController@delete')->name('raport.delete');
+Route::post('raport/store','RaportController@store')->name('raport.store');

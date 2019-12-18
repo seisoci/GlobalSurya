@@ -40,6 +40,6 @@ class Raport extends Model
 
     public function matapelajaran()
     {
-        return $this->hasMany(Matapelajaran::class);
+        return $this->belongsTo(Matapelajaran::class, 'id_matapelajaran');
     }
 }
