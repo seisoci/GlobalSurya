@@ -9,10 +9,6 @@ use App\Kelas;
 
 class KelasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function datatable(){
         return Datatables::of(kelas::query())

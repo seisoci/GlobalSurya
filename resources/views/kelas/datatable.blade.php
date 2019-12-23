@@ -210,7 +210,7 @@ $(function() {
 		$(this).find('.modal-body').find('input[name="id"]').val(id);
 	});
 	$('#modalDelete').on('hidden.bs.modal', function (e) {
-		$(this).find('.modal-body').find('input[name="nama_kelas"]').val('');
+		$(this).find('.modal-body').find('input[name="id"]').val('');
 	});
 
     toastr.options = {

@@ -8,10 +8,6 @@ use DataTables;
 
 class MatapelajaranController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function datatable(){
         return Datatables::of(Matapelajaran::query())

@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-
-
     public function datatable(){
         return Datatables::of(User::query())
         ->addColumn('action', function ($row) {

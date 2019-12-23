@@ -19,6 +19,9 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name
 
 Route::resource('dasboard','DasboardController');
 
+Route::middleware('auth:web')->group( function () {
+
+
 Route::get('users','UsersController@index')->name('users');
 Route::get('users/datatable','UsersController@datatable');
 Route::get('users/create','UsersController@create')->name('users.create');
@@ -41,10 +44,13 @@ Route::post('matapelajaran/delete','MatapelajaranController@delete')->name('mata
 
 Route::get('raport','RaportController@index')->name('raport');
 Route::get('raport/datatable','RaportController@datatable');
-Route::get('raport/datatabledetail','RaportController@datatabledetail');
+Route::get('raport/datatabledetail/{semester}','RaportController@datatabledetail');
 Route::get('raport/create','RaportController@create')->name('raport.create');
-Route::get('raport/detail/{year}/{id}','RaportController@detail');
+Route::get('raport/detail/{year}/{id}/{semester}','RaportController@detail');
 Route::post('raport/add','RaportController@add')->name('raport.add');
 Route::post('raport/update','RaportController@update')->name('raport.update');
 Route::post('raport/delete','RaportController@delete')->name('raport.delete');
 Route::post('raport/store','RaportController@store')->name('raport.store');
+Route::post('raport/absensi','RaportController@absensi')->name('raport.absensi');
+Route::get('raport/downloadPDF/{year}/{id}/{semester}','RaportController@downloadPDF');
+});

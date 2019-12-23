@@ -21,5 +21,5 @@ Route::post('login', 'API\RegisterController@login');
 
 Route::middleware('auth:api')->group( function () {
     Route::resource('raport', 'API\RaportController');
-
+    Route::get('raport/siswa/{id}','API\RaportController@siswa');
 });

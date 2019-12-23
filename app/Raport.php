@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Kelas;
 use App\Matapelajaran;
+use App\Http\Controllers\DB;
 
 class Raport extends Model
 {
@@ -42,4 +43,6 @@ class Raport extends Model
     {
         return $this->belongsTo(Matapelajaran::class, 'id_matapelajaran');
     }
+
+
 }

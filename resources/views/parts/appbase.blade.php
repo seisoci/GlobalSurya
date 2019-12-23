@@ -9,6 +9,10 @@
 		<meta name="description" content="Updates and statistics">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- Sendbird -->
+        <script src="{{('js/SendBird.min.js')}}"></script>
+        <script src="{{('js/widget.SendBird.js')}}"></script>
+
 		<!--begin::Fonts -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
 
@@ -143,9 +147,6 @@
                             2019&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Laras Bahasa Labs</a>
                         </div>
                         <div class="kt-footer__menu">
-                            <a href="http://keenthemes.com/metronic" target="_blank" class="kt-footer__menu-link kt-link">About</a>
-                            <a href="http://keenthemes.com/metronic" target="_blank" class="kt-footer__menu-link kt-link">Team</a>
-                            <a href="http://keenthemes.com/metronic" target="_blank" class="kt-footer__menu-link kt-link">Contact</a>
                         </div>
                     </div>
                 </div>
@@ -208,6 +209,15 @@
         @yield('script')
 		<!--end::Page Scripts -->
 	</body>
+    <div id="sb_widget"></div>
 
 	<!-- end::Body -->
 </html>
+<script>
+    var appId = 'A7A75D32-F6A7-4693-9093-8D892B595282';
+    var userId = '{{auth::user()->nis}}';
+    var nickname = '{{auth::user()->name}}';
+    sbWidget.startWithConnect(appId, userId, nickname, function() {
+      // do something...
+    });
+</script>

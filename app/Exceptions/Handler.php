@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use App\Exceptions\AuthenticationException;
 class Handler extends ExceptionHandler
 {
     /**
@@ -48,4 +48,6 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+
+
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\API\BaseController as BaseController;
 use App\Raport;
 use Validator;
 use App\Http\Resources\Raport as RaportResource;
+use App\User;
 
 class RaportController extends BaseController
 {
@@ -15,8 +16,7 @@ class RaportController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         $raport = Raport::all();
 
         return $this->sendResponse(RaportResource::collection($raport), 'Raports retrieved successfully.');
@@ -27,8 +27,7 @@ class RaportController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $input = $request->all();
 
         $validator = Validator::make($input, [
@@ -45,14 +44,8 @@ class RaportController extends BaseController
         return $this->sendResponse(new RaportResource($raport), 'Raport created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+
+    public function show($id){
         $raport = Raport::find($id);
 
         if (is_null($raport)) {
@@ -62,15 +55,8 @@ class RaportController extends BaseController
         return $this->sendResponse(new RaportResource($raport), 'Raport retrieved successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Raport $raport)
-    {
+
+    public function update(Request $request, Raport $raport){
         $input = $request->all();
 
         $validator = Validator::make($input, [
@@ -89,16 +75,20 @@ class RaportController extends BaseController
         return $this->sendResponse(new RaportResource($raport), 'Raport updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Raport $raport)
-    {
-        $raport->delete();
+    public function siswa($id){
+        // $data = User::with(['raport' => function($q) use($year) {
+        //     $q->where('raport.tahun', $year);
+        // }, 'raport.matapelajaran'])->where('id', $id)
+        // ->get();
 
-        return $this->sendResponse([], 'Raport deleted successfully.');
+        $data = User::with(['raport', 'raport.matapelajaran'])->where('id', $id)->get();
+
+        if (is_null($data)) {
+            return $this->sendError('Raport not found.');
+        }
+
+        return $this->sendResponse(new RaportResource($data), 'Raport retrieved successfully.');
+
     }
+
 }

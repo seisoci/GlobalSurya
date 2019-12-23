@@ -72,7 +72,6 @@
             </table>
 
             <!--end: Datatable -->
-            <div id="sb_widget"></div>
 
         </div>
     </div>
@@ -108,11 +107,6 @@
 @endsection
 @section('script')
 <script src="{{('assets/plugins/custom/datatables/datatables.bundle.js')}}" type="text/javascript"></script>
-<script src="{{('js/SendBird.min.js')}}"></script>
-<script src="{{('js/widget.SendBird.js')}}"></script>
-<script>
-        sbWidget.start('A7A75D32-F6A7-4693-9093-8D892B595282');
- </script>
 <script>
 $(function() {
     var datatable = $('#datatable').DataTable({
