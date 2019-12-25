@@ -10,8 +10,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Sendbird -->
-        <script src="{{('js/SendBird.min.js')}}"></script>
-        <script src="{{('js/widget.SendBird.js')}}"></script>
+        <script src="{{asset('js/SendBird.min.js')}}"></script>
+        <script src="{{asset('js/widget.SendBird.js')}}"></script>
 
 		<!--begin::Fonts -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
@@ -44,7 +44,7 @@
 
 		<!-- begin::Page loader -->
         <div class="kt-page-loader kt-page-loader--logo">
-            <img alt="Logo" src="{{asset('assets/media/logos/logo-mini-md.png')}}" />
+            <img alt="Logo" src="{{asset('assets/media/bg/logo.png')}}" />
             <div class="kt-spinner kt-spinner--danger"></div>
         </div>
         <!-- end::Page Loader -->
@@ -53,7 +53,7 @@
         <!-- begin:: Header Mobile -->
         <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
             <div class="kt-header-mobile__logo">
-                <a href="index.html">
+                <a href="{{url('users')}}">
                     <img alt="Logo" src="{{asset('assets/media/logos/logo-dark.png')}}" />
                 </a>
             </div>
@@ -79,17 +79,17 @@
                                 <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
                                     <div class="kt-header__topbar-user">
                                         <span class="kt-header__topbar-username kt-hidden-mobile">{{Auth::user()->name}}</span>
-                                        <img class="kt-hidden" alt="Pic" src="{{asset('assets/media/misc/bg-2.jpg')}}" />
+                                        <img class="kt-hidden" alt="Pic" src="{{asset('assets/media/bg/logo.png')}}" />
 
                                         <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
-                                        <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">S</span>
+                                        <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">GS</span>
                                     </div>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
                                     <!--begin: Head -->
                                     <div class="kt-user-card kt-user-card--skin-light kt-notification-item-padding-x">
                                         <div class="kt-user-card__avatar">
-                                            <img class="kt-hidden-" alt="Pic" src="{{asset('assets/media/misc/bg-2.jpg')}}" />
+                                            <img class="kt-hidden-" alt="Pic" src="{{asset('assets/media/bg/logo.png')}}" />
 
                                             <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
                                             <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold kt-hidden">S</span>

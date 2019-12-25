@@ -13,15 +13,14 @@
 
 Route::get('/', function () {
     return view('auth.login');
-});
+})->middleware('guest');;
+
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::resource('dasboard','DasboardController');
 
 Route::middleware('auth:web')->group( function () {
-
-
 Route::get('users','UsersController@index')->name('users');
 Route::get('users/datatable','UsersController@datatable');
 Route::get('users/create','UsersController@create')->name('users.create');
@@ -52,5 +51,7 @@ Route::post('raport/update','RaportController@update')->name('raport.update');
 Route::post('raport/delete','RaportController@delete')->name('raport.delete');
 Route::post('raport/store','RaportController@store')->name('raport.store');
 Route::post('raport/absensi','RaportController@absensi')->name('raport.absensi');
-Route::get('raport/downloadPDF/{year}/{id}/{semester}','RaportController@downloadPDF');
 });
+
+Route::get('raport/downloadPDF/{year}/{id}/{semester}','RaportController@downloadPDF');
+

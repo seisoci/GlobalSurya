@@ -386,7 +386,13 @@ class RaportController extends Controller
             END AS ptspredikat
             '),
             )->with(['matapelajaran:id_matapelajaran,mata_pelajaran'])->where('id_users', $id)->where('tahun', $year)->get();
+            $data = User::with(['raport' => function($q) use($year) {
+                $q->where('raport.tahun', $year);
+            }, 'raport.matapelajaran', 'raport.kelas'],)->where('id', $id)
+            ->first();
 
+            PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+            $pdf = PDF::loadView('raport.pdfganjil', compact('data', 'detail', 'year', 'semester'));
         }else if($semester == "genap"){
             $detail = Raport::select('*',
             DB::raw('(genappengetahuankd1+genappengetahuankd2+genappengetahuankd3+genappengetahuankd4)/4 AS pengetahuanrata'),
@@ -426,16 +432,16 @@ class RaportController extends Controller
             END AS ptspredikat
             '),
             )->with(['matapelajaran:id_matapelajaran,mata_pelajaran'])->where('id_users', $id)->where('tahun', $year)->get();
+            $data = User::with(['raport' => function($q) use($year) {
+                $q->where('raport.tahun', $year);
+            }, 'raport.matapelajaran', 'raport.kelas'],)->where('id', $id)
+            ->first();
 
+            PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+            $pdf = PDF::loadView('raport.pdfgenap', compact('data', 'detail', 'year', 'semester'));
         }
 
-        $data = User::with(['raport' => function($q) use($year) {
-            $q->where('raport.tahun', $year);
-        }, 'raport.matapelajaran', 'raport.kelas'],)->where('id', $id)
-        ->first();
 
-        PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-        $pdf = PDF::loadView('raport.pdf', compact('data', 'detail', 'year', 'semester'));
         return $pdf->setPaper('a4', 'landscape')->download('raport.pdf');
     }
 

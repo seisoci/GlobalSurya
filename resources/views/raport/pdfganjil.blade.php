@@ -23,7 +23,7 @@ table {
                 <th colspan="3">{{$data->name}}</th>
                 <th colspan="3">Kelas: {{$data->raport[0]->kelas->nama_kelas}}</th>
                 <th colspan="3">Tahun:{{$year}}</th>
-                <th colspan="3">Semester: {{$semester}}/th>
+                <th colspan="3">Semester: {{$semester}}</th>
                 <th colspan="10"></th>
             </tr>
             <tr>
@@ -63,27 +63,28 @@ table {
             @foreach ($detail as $item)
             <tr>
                 <td>{{$item->matapelajaran['mata_pelajaran']}}</td>
-                <td>{{$item->pengetahuankd1}}</td>
-                <td>{{$item->pengetahuankd2}}</td>
-                <td>{{$item->pengetahuankd3}}</td>
-                <td>{{$item->pengetahuankd4}}</td>
+                <td>{{$item->ganjilpengetahuankd1}}</td>
+                <td>{{$item->ganjilpengetahuankd2}}</td>
+                <td>{{$item->ganjilpengetahuankd3}}</td>
+                <td>{{$item->ganjilpengetahuankd4}}</td>
                 <td>{{$item->pengetahuanrata}}</td>
                 <td>{{$item->pengetahuanpredikat}}</td>
-                <td>{{$item->keterampilankd1}}</td>
-                <td>{{$item->keterampilankd2}}</td>
-                <td>{{$item->keterampilankd3}}</td>
-                <td>{{$item->keterampilankd4}}</td>
+                <td>{{$item->ganjilketerampilankd1}}</td>
+                <td>{{$item->ganjilketerampilankd2}}</td>
+                <td>{{$item->ganjilketerampilankd3}}</td>
+                <td>{{$item->ganjilketerampilankd4}}</td>
                 <td>{{$item->keterampilanrata}}</td>
-                <td>{{$item->sikapkd1}}</td>
-                <td>{{$item->sikapkd2}}</td>
-                <td>{{$item->sikapkd3}}</td>
-                <td>{{$item->sikapkd4}}</td>
+                <td>{{$item->keterampilanpredikat}}</td>
+                <td>{{$item->ganjilsikapkd1}}</td>
+                <td>{{$item->ganjilsikapkd2}}</td>
+                <td>{{$item->ganjilsikapkd3}}</td>
+                <td>{{$item->ganjilsikapkd4}}</td>
                 <td>{{$item->sikaprata}}</td>
                 <td>{{$item->sikappredikat}}</td>
-                <td>{{$item->pts1}}</td>
-                <td>{{$item->pts2}}</td>
-                <td>{{$item->pts3}}</td>
-                <td>{{$item->pts3}}</td>
+                <td>{{$item->ganjilpts1}}</td>
+                <td>{{$item->ganjilpts2}}</td>
+                <td>{{$item->ganjilpts3}}</td>
+                <td>-</td>
             </tr>
             @endforeach
         </tbody>

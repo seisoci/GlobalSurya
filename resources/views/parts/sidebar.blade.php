@@ -3,7 +3,7 @@
         <!-- begin:: Aside -->
         <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
             <div class="kt-aside__brand-logo">
-                <a href="index.html">
+                <a href="{{url('users')}}">
                     <img alt="Logo" src="{{asset('assets/media/logos/logo-dark.png')}}" />
                 </a>
             </div>

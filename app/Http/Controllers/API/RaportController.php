@@ -81,13 +81,13 @@ class RaportController extends BaseController
         // }, 'raport.matapelajaran'])->where('id', $id)
         // ->get();
 
-        $data = User::with(['raport', 'raport.matapelajaran'])->where('id', $id)->get();
+        $data = User::with(['raport', 'raport.matapelajaran'])->where('id', $id)->first();
 
         if (is_null($data)) {
             return $this->sendError('Raport not found.');
         }
 
-        return $this->sendResponse(new RaportResource($data), 'Raport retrieved successfully.');
+        return $this->sendResponse($data, 'Raport retrieved successfully.');
 
     }
 
