@@ -12,4 +12,9 @@ class Absen extends Model
     protected $fillable = [
         'id_users', 'ganjilsakit', 'ganjilizin', 'ganjilalpha', 'genapsakit', 'genapizin', 'genapalpha'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_users');
+    }
 }

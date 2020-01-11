@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->hasMany(Raport::class, 'id_users');
     }
 
+    public function absen()
+    {
+        return $this->hasOne(Absen::class, 'id_users');
+    }
+
 
 
 }

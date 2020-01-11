@@ -90,7 +90,7 @@ class RaportController extends Controller
             WHEN (ganjilpts1+ganjilpts2+ganjilpts3)/3 <93 AND (ganjilpts1+ganjilpts2+ganjilpts3)/4 <=100 THEN "A"
             ELSE "NULL"
             END AS ptspredikat
-            '),
+            ')
             )->with(['matapelajaran:id_matapelajaran,mata_pelajaran'])->where('id_users', $id)->where('tahun', $year)->get();
             return DataTables::collection($data)
             ->addColumn('action', function ($row) {
@@ -157,7 +157,7 @@ class RaportController extends Controller
             WHEN (genappts1+genappts2+genappts3)/3 <93 AND (genappts1+genappts2+genappts3)/4 <=100 THEN "A"
             ELSE "NULL"
             END AS ptspredikat
-            '),
+            ')
             )->with(['matapelajaran:id_matapelajaran,mata_pelajaran'])->where('id_users', $id)->where('tahun', $year)->get();
             return DataTables::collection($data)
             ->addColumn('action', function ($row) {
@@ -296,7 +296,7 @@ class RaportController extends Controller
             );
             $data = User::with(['raport' => function($q) use($year) {
                 $q->where('raport.tahun', $year);
-            }, 'raport.matapelajaran', 'raport.kelas'],)->where('id', $id)
+            }, 'raport.matapelajaran', 'raport.kelas'])->where('id', $id)
             ->first();
             $absen = Absen::where('tahun', $year)->where('id_users', $id)->first();
             return view('raport.ganjil', compact('config', 'data', 'year', 'absen'));
@@ -307,7 +307,7 @@ class RaportController extends Controller
             );
             $data = User::with(['raport' => function($q) use($year) {
                 $q->where('raport.tahun', $year);
-            }, 'raport.matapelajaran', 'raport.kelas'],)->where('id', $id)
+            }, 'raport.matapelajaran', 'raport.kelas'])->where('id', $id)
             ->first();
             $absen = Absen::where('tahun', $year)->where('id_users', $id)->first();
             return view('raport.genap', compact('config', 'data', 'year', 'absen'));
@@ -384,13 +384,12 @@ class RaportController extends Controller
             WHEN (ganjilpts1+ganjilpts2+ganjilpts3)/3 <93 AND (ganjilpts1+ganjilpts2+ganjilpts3)/4 <=100 THEN "A"
             ELSE "NULL"
             END AS ptspredikat
-            '),
-            )->with(['matapelajaran:id_matapelajaran,mata_pelajaran'])->where('id_users', $id)->where('tahun', $year)->get();
+            ')
+            )->with(['matapelajaran:id_matapelajaran,mata_pelajaran', 'guru'])->where('id_users', $id)->where('tahun', $year)->get();
             $data = User::with(['raport' => function($q) use($year) {
                 $q->where('raport.tahun', $year);
-            }, 'raport.matapelajaran', 'raport.kelas'],)->where('id', $id)
+            }, 'raport.matapelajaran', 'raport.kelas', 'absen'])->where('id', $id)
             ->first();
-
             PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
             $pdf = PDF::loadView('raport.pdfganjil', compact('data', 'detail', 'year', 'semester'));
         }else if($semester == "genap"){
@@ -430,11 +429,11 @@ class RaportController extends Controller
             WHEN (genappts1+genappts2+genappts3)/3 <93 AND (genappts1+genappts2+genappts3)/4 <=100 THEN "A"
             ELSE "NULL"
             END AS ptspredikat
-            '),
+            ')
             )->with(['matapelajaran:id_matapelajaran,mata_pelajaran'])->where('id_users', $id)->where('tahun', $year)->get();
             $data = User::with(['raport' => function($q) use($year) {
                 $q->where('raport.tahun', $year);
-            }, 'raport.matapelajaran', 'raport.kelas'],)->where('id', $id)
+            }, 'raport.matapelajaran', 'raport.kelas', 'absen'])->where('id', $id)
             ->first();
 
             PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);

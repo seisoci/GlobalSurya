@@ -81,7 +81,7 @@ class RaportController extends BaseController
         // }, 'raport.matapelajaran'])->where('id', $id)
         // ->get();
 
-        $data = User::with(['raport', 'raport.matapelajaran'])->where('id', $id)->first();
+        $data = Raport::select('tahun')->where('id_users', $id)->groupBy('tahun')->get();
 
         if (is_null($data)) {
             return $this->sendError('Raport not found.');
