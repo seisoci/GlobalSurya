@@ -214,7 +214,7 @@
 	<!-- end::Body -->
 </html>
 <script>
-    var appId = 'A7A75D32-F6A7-4693-9093-8D892B595282';
+    var appId = 'E18D1132-B362-4629-9470-A26169339B4B';
     var userId = '{{auth::user()->nis}}';
     var nickname = '{{auth::user()->name}}';
     sbWidget.startWithConnect(appId, userId, nickname, function() {
