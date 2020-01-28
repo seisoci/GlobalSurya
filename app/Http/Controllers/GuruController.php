@@ -7,14 +7,14 @@ use App\User;
 use DataTables;
 use Illuminate\Support\Facades\Hash;
 
-class UsersController extends Controller
+class GuruController extends Controller
 {
     public function datatable(){
-        return Datatables::of(User::where('role', 'siswa')
+        return Datatables::of(User::where('role','guru'))
         ->addColumn('action', function ($row) {
             return '
             <span style="overflow: visible; position: relative; width: 110px;">
-               </a><a href="users/edit/'.$row->id.'" title="Edit" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-edit"></i></a>
+               </a><a href="guru/edit/'.$row->id.'" title="Edit" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-edit"></i></a>
                </a><a href="#" data-toggle="modal" data-target="#modalDelete" data-id="'. $row->id.'" title="Delete" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-trash"></i></a>
                </span>';
         })
@@ -24,19 +24,19 @@ class UsersController extends Controller
 
     public function index(){
         $config = array(
-            'title_page' => "Users",
-            'title_datatable' => "Users Table"
+            'title_page' => "Wali Kelas",
+            'title_datatable' => "Wali Kelas Table"
         );
-        return view('users.datatable', compact('config'));
+        return view('guru.datatable', compact('config'));
     }
 
     public function create(){
-        return view('users.form');
+        return view('guru.form');
     }
 
     public function edit($id){
         $data = User::findOrFail($id);
-        return view('users.edit', compact('data'));
+        return view('guru.edit', compact('data'));
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class UsersController extends Controller
         $data->name= $request->name;
         $data->username= $request->username;
         $data->nis = $request->nis;
-        $data->role = 'siswa';
+        $data->role = 'guru';
         if($data->save()){
             $response = response()->json([
                 'status' => 'success',
@@ -63,7 +63,7 @@ class UsersController extends Controller
         $data = User::find($request->id);
         $data->name= $request->name;
         $data->nis = $request->nis;
-        $data->role = 'siswa';
+        $data->role = 'guru';
         if($data->save()){
             $response = response()->json([
                 'status' => 'success',

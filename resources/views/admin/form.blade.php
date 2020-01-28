@@ -16,7 +16,7 @@
                 </div>
 
                 <!--begin::Form-->
-                <form class="kt-form" id="formStore" role="form" method="POST" action="{{ route('users.store') }}">
+                <form class="kt-form" id="formStore" role="form" method="POST" action="{{ route('admin.store') }}">
                     {{ csrf_field() }}
                     <div class="kt-portlet__body">
                         <div class="form-group">
@@ -52,15 +52,7 @@
                         </div>
                         <div class="form-group">
                             <label>{{ __('Role') }}</label>
-                                @if (auth::user()->role === 'guru')
-                                <input type="text" class="form-control" value="siswa" name="role" disabled>
-                            @else
-                                <select class="form-control" name="role">
-                                    <option value="admin">Admin</option>
-                                    <option value="guru">Guru</option>
-                                    <option value="siswa">Siswa</option>
-                                </select>
-                            @endif
+                            <input type="text" class="form-control" value="Wali Kelas" disabled>
                         </div>
                     </div>
                     <div class="kt-portlet__foot">
@@ -103,7 +95,7 @@ $(function() {
 				if (response.status == "success"){
 					toastr.success(response.message,'Success !');
                     setTimeout(function() {
-                        window.location.href = "{{url('users')}}"
+                        window.location.href = "{{url('admin')}}"
                     }, 3000);
 				}
 			},error: function(response){

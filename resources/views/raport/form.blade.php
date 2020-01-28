@@ -24,12 +24,13 @@
                             @if (auth::user()->role === 'guru')
                                 <input type="text" class="form-control" value="{{auth::user()->name}}">
                                 <input type="hidden" class="form-control" name="id_guru" value="{{auth::user()->id}}"">
-                            @endif
+                            @else
                                 <select class="form-control" name="id_guru">
                                     @foreach ($guru as $data)
                                          <option value="{{$data->id}}">{{$data->name}}</option>
                                     @endforeach
                                  </select>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label>{{ __('User') }}</label>

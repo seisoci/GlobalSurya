@@ -38,7 +38,6 @@ class RaportController extends Controller
             <span style="overflow: visible; position: relative; width: 110px;">
                </a><a href="raport/detail/'.$row->tahun.'/'.$row->id_users.'/ganjil" title="Lihat Raport Ganjil" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-edit"></i></a>
                </a><a href="raport/detail/'.$row->tahun.'/'.$row->id_users.'/genap" title="Lihat Raport Genap" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-edit"></i></a>
-               </a><a href="raport/detail/'.$row->tahun.'/'.$row->id_users.'/akhir" title="Lihat Raport Akhir" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-edit"></i></a>
                </span>';
         })
         ->toJson();
@@ -316,6 +315,7 @@ class RaportController extends Controller
 
     public function delete(Request $request){
         $data = Raport::find($request->id);
+
         if($data->delete()){
             $response = response()->json([
                 'status' => 'success',
