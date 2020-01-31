@@ -34,6 +34,7 @@
                         <th></th>
                         <th>NIP</th>
                         <th>Nama</th>
+                        <th>Username</th>
                         <th>Email</th>
                         <th>Action</th>
                     </tr>
@@ -87,6 +88,7 @@ $(function() {
             { data: 'id', name: 'id' },
             { data: 'nis', name: 'nis' },
             { data: 'name', name: 'name' },
+            { data: 'username', name: 'username' },
             { data: 'email', name: 'email' },
             { data: 'action', name: 'action', orderable: false, searchable: false}
         ],

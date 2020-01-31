@@ -35,6 +35,7 @@
                         <th>NIS/NIP</th>
                         <th>Nama</th>
                         <th>Nama Orang Tua</th>
+                        <th>Username</th>
                         <th>Email</th>
                         <th>Action</th>
                     </tr>
@@ -89,6 +90,7 @@ $(function() {
             { data: 'nis', name: 'nis' },
             { data: 'name', name: 'name' },
             { data: 'name_orangtua', name: 'name_orangtua' },
+            { data: 'username', name: 'username' },
             { data: 'email', name: 'email' },
             { data: 'action', name: 'action', orderable: false, searchable: false}
         ],
