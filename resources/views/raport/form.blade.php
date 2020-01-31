@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <label>{{ __('Guru') }}</label>
                             @if (auth::user()->role === 'guru')
-                                <input type="text" class="form-control" value="{{auth::user()->name}}">
+                                <input type="text" class="form-control" value="{{auth::user()->name}}" disabled>
                                 <input type="hidden" class="form-control" name="id_guru" value="{{auth::user()->id}}"">
                             @else
                                 <select class="form-control" name="id_guru">

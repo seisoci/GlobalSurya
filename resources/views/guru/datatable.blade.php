@@ -32,9 +32,9 @@
                 <thead>
                     <tr>
                         <th></th>
+                        <th>NIP</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>NIS/NIP</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -82,12 +82,12 @@ $(function() {
         serverSide: true,
         lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
         ajax: 'guru/datatable',
-        order: [[1, 'asc']],
+        order: [[2, 'asc']],
         columns: [
             { data: 'id', name: 'id' },
+            { data: 'nis', name: 'nis' },
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email' },
-            { data: 'nis', name: 'nis' },
             { data: 'action', name: 'action', orderable: false, searchable: false}
         ],
         headerCallback: function(thead, data, start, end, display) {

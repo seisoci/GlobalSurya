@@ -29,21 +29,21 @@ Route::post('users/update','UsersController@update')->name('users.update');
 Route::post('users/store','UsersController@store')->name('users.store');
 Route::post('users/delete','UsersController@delete')->name('users.delete');
 
-Route::get('guru','guruController@index')->name('guru');
-Route::get('guru/datatable','guruController@datatable');
-Route::get('guru/create','guruController@create')->name('guru.create');
-Route::get('guru/edit/{id}','guruController@edit');
-Route::post('guru/update','guruController@update')->name('guru.update');
-Route::post('guru/store','guruController@store')->name('guru.store');
-Route::post('guru/delete','guruController@delete')->name('guru.delete');
+Route::get('guru','GuruController@index')->name('guru');
+Route::get('guru/datatable','GuruController@datatable');
+Route::get('guru/create','GuruController@create')->name('guru.create');
+Route::get('guru/edit/{id}','GuruController@edit');
+Route::post('guru/update','GuruController@update')->name('guru.update');
+Route::post('guru/store','GuruController@store')->name('guru.store');
+Route::post('guru/delete','GuruController@delete')->name('guru.delete');
 
-Route::get('admin','adminController@index')->name('admin');
-Route::get('admin/datatable','adminController@datatable');
-Route::get('admin/create','adminController@create')->name('admin.create');
-Route::get('admin/edit/{id}','adminController@edit');
-Route::post('admin/update','adminController@update')->name('admin.update');
-Route::post('admin/store','adminController@store')->name('admin.store');
-Route::post('admin/delete','adminController@delete')->name('admin.delete');
+Route::get('admin','AdminController@index')->name('admin');
+Route::get('admin/datatable','AdminController@datatable');
+Route::get('admin/create','AdminController@create')->name('admin.create');
+Route::get('admin/edit/{id}','AdminController@edit');
+Route::post('admin/update','AdminController@update')->name('admin.update');
+Route::post('admin/store','AdminController@store')->name('admin.store');
+Route::post('admin/delete','AdminController@delete')->name('admin.delete');
 
 Route::get('kelas','KelasController@index')->name('kelas');
 Route::get('kelas/datatable','KelasController@datatable');

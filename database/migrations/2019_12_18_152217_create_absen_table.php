@@ -24,7 +24,7 @@ class CreateAbsenTable extends Migration
             $table->integer('genapalpha')->default(0);
             $table->year('tahun');
             $table->timestamps();
-            $table->foreign('id_users')->references('id')->on('users');
+            $table->foreign('id_users')->references('id')->on('users')->onDelete('cascade');
 
         });
     }

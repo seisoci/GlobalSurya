@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group">
                             <label>{{ __('Role') }}</label>
-                            <input type="text" class="form-control" value="Wali Kelas" disabled>
+                            <input type="text" class="form-control" value="Admin" disabled>
                         </div>
                     </div>
                     <div class="kt-portlet__foot">

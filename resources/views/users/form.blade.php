@@ -1,4 +1,4 @@
-@extends('parts.appbase', ['title' => 'Create User'])
+@extends('parts.appbase', ['title' => 'Create Orang Tua Siswa'])
 
 @section('content')
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -10,7 +10,7 @@
                 <div class="kt-portlet__head">
                     <div class="kt-portlet__head-label">
                         <h3 class="kt-portlet__head-title">
-                            Add User
+                            Add Orang Tua Siswa
                         </h3>
                     </div>
                 </div>
@@ -43,8 +43,12 @@
                             <input type="text" name="username" class="form-control" placeholder="Your Username">
                         </div>
                         <div class="form-group">
-                            <label>{{ __('Name') }}</label>
-                            <input type="text" name="name" class="form-control" placeholder="Your Name">
+                            <label>{{ __('Nama Siswa') }}</label>
+                            <input type="text" name="name" class="form-control" placeholder="Nama Siswa">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('Nama Orang Tua') }}</label>
+                            <input type="text" name="name_orangtua" class="form-control" placeholder="Nama Orang Tua">
                         </div>
                         <div class="form-group">
                             <label>{{ __('NIS/NIP') }}</label>
@@ -52,15 +56,7 @@
                         </div>
                         <div class="form-group">
                             <label>{{ __('Role') }}</label>
-                                @if (auth::user()->role === 'guru')
-                                <input type="text" class="form-control" value="siswa" name="role" disabled>
-                            @else
-                                <select class="form-control" name="role">
-                                    <option value="admin">Admin</option>
-                                    <option value="guru">Guru</option>
-                                    <option value="siswa">Siswa</option>
-                                </select>
-                            @endif
+                            <input type="text" class="form-control" value="Orang Tua Siswa" disabled>
                         </div>
                     </div>
                     <div class="kt-portlet__foot">

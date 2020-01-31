@@ -1,4 +1,4 @@
-@extends('parts.appbase', ['title' => 'Edit User'])
+@extends('parts.appbase', ['title' => 'Edit Orang Tua Siswa'])
 
 @section('content')
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -10,7 +10,7 @@
                 <div class="kt-portlet__head">
                     <div class="kt-portlet__head-label">
                         <h3 class="kt-portlet__head-title">
-                            Edit User
+                            Edit Orang Tua Siswa
                         </h3>
                     </div>
                 </div>
@@ -31,8 +31,12 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ __('Name') }}</label>
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" value="{{$data->name}}">
+                            <label>{{ __('Nama Siswa') }}</label>
+                            <input type="text" name="name" class="form-control" placeholder="Nama Siswa" value="{{$data->name}}">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('Nama Orang Tua') }}</label>
+                            <input type="text" name="name_orangtua" class="form-control" placeholder="Nama Orang Tua" value="{{$data->name_orangtua}}">
                         </div>
                         <div class="form-group">
                             <label>{{ __('NIS/NIP') }}</label>
@@ -40,11 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label>{{ __('Role') }}</label>
-                            <select class="form-control" name="role">
-                                <option value="admin" {{$data->role == 'admin' ? 'selected' : NULL}}>Admin</option>
-                                <option value="guru" {{$data->role == 'guru' ? 'selected' : NULL}}>Guru</option>
-                                <option value="siswa"  {{$data->role == 'siswa' ? 'selected' : NULL}}>Siswa</option>
-                            </select>
+                            <input type="text" class="form-control" value="Orang Tua Siswa" disabled>
                         </div>
                     </div>
                     <div class="kt-portlet__foot">

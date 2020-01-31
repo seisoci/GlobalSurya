@@ -1,4 +1,4 @@
-@extends('parts.appbase', ['title' => 'Users'])
+@extends('parts.appbase', ['title' => 'Orang Tua Siswa'])
 
 @section('content')
 <!-- begin:: Content -->
@@ -32,10 +32,10 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Nama</th>
-                        <th>Email</th>
                         <th>NIS/NIP</th>
-                        <th>Roles</th>
+                        <th>Nama</th>
+                        <th>Nama Orang Tua</th>
+                        <th>Email</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -83,13 +83,13 @@ $(function() {
         serverSide: true,
         lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
         ajax: 'users/datatable',
-        order: [[1, 'asc']],
+        order: [[2, 'asc']],
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'name', name: 'name' },
-            { data: 'email', name: 'email' },
             { data: 'nis', name: 'nis' },
-            { data: 'role', name: 'role' },
+            { data: 'name', name: 'name' },
+            { data: 'name_orangtua', name: 'name_orangtua' },
+            { data: 'email', name: 'email' },
             { data: 'action', name: 'action', orderable: false, searchable: false}
         ],
         headerCallback: function(thead, data, start, end, display) {
@@ -114,7 +114,7 @@ $(function() {
             },
         },
         {
-            "targets": 5    , // your case first column
+            "targets": 4    , // your case first column
             "className": "text-center",
             "width": "110px"
         }
